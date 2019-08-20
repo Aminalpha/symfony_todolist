@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+
+    <div class="row">
+        <div class="col-md-6">{{ form_row(form.title) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">{{ form_row(form.details) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">{{ form_row(form.id_author) }}</div>
+    </div>
+
+    {{ form_rest(form) }}
+    <button class="btn btn-primary"> {{button | default('Save')}} </button>
+
+{{ form_end(form) }}

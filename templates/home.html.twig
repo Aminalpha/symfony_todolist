@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'My todolist' %}
+
+{% block body %}
+
+  <div class="container">
+    <h2>LIST "TO DO LIST"</h2>
+    <br>
+    <table class="table table-md table-striped table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Numéro Todolist</th>
+          <th scope="col">TITLE</th>
+          <th scope="col">DATE</th>
+          <th scope="col">ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set num = 1 %}
+        {% for todolist in todolists %}
+            <tr>
+            <th scope="row"> {{ num }} </th>
+            <td>{{ todolist.title }}</td> 
+            <td>Date</td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-details<?= $data->id_todolist ?>">Details</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-edit<?= $data->id_todolist ?>">Edit</button>
+            </td>
+            </tr>
+            {% set num = num + 1 %}
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="text-right">
+      <a href="{{ path("create.new") }}" class="btn btn-primary ">ADD To do</a>
+    </div>
+    
+  </div>
+
+{% endblock %}
